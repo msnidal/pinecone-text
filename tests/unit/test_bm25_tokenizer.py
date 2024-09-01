@@ -1,9 +1,10 @@
-import pytest
+import importlib
+import shutil
+import sys
 
 import nltk
-import shutil
-import importlib
-import sys
+import pytest
+
 from pinecone_text.sparse.bm25_tokenizer import BM25Tokenizer
 
 
@@ -152,7 +153,7 @@ class TestBM25Tokenizer:
             language="english",
         )
 
-        nltk.find("tokenizers/punkt")
+        nltk.find("tokenizers/punkt_tab")
         nltk.find("corpora/stopwords")
 
         assert tokenizer("The quick brown fox jumps over the lazy dog") == [
